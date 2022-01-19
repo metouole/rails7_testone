@@ -202,7 +202,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-  config.timeout_in = 30.seconds
+  config.timeout_in = 30.minutes
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -286,7 +286,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-
+  OmniAuth.config.allowed_request_methods = [:post, :get]
+  config.omniauth :google_oauth2, '354101533248-bk8063smoig3q6af6m55qc3psplk7hv7.apps.googleusercontent.com', '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'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
